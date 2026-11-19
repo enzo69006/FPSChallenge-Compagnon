@@ -37,12 +37,13 @@ enum AppTab: CaseIterable {
 }
 
 struct MainTabView: View {
+    let container: DependencyContainer
     @State private var selectedTab: AppTab = .home
-    
+
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab(value: AppTab.home) {
-                HomeView()
+                GamesView(viewModel: container.makeGamesViewModel())
                     .toolbar(.hidden, for: .tabBar)
             }
             Tab(value: AppTab.tournament) {
@@ -188,5 +189,5 @@ private struct SelectionIndicator: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(container: DependencyContainer())
 }

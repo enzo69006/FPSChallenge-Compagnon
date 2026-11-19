@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FPSChallenge_CompagnonApp: App {
+    private let container = DependencyContainer()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView(container: container)
         }
     }
 }

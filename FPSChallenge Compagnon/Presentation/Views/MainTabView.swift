@@ -59,7 +59,7 @@ struct MainTabView: View {
                     .toolbar(.hidden, for: .tabBar)
             }
             Tab(value: AppTab.profile) {
-                ProfileView()
+                ProfileView(viewModel: container.makeProfileViewModel())
                     .toolbar(.hidden, for: .tabBar)
             }
         }
